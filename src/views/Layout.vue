@@ -10,12 +10,12 @@
         首页
       </tab-item>
       <tab-item id="/order" @click.native="to">
-        <i slot="icon" class="iconfont">&#xe66c;</i>
-        订单
-      </tab-item>
-      <tab-item id="/discover" @click.native="to">
         <i slot="icon" class="iconfont">&#xe67e;</i>
         发现
+      </tab-item>
+      <tab-item id="/discover" @click.native="to">
+        <i slot="icon" class="iconfont">&#xe66c;</i>
+        订单
       </tab-item>
       <tab-item id="/about" @click.native="to">
         <i slot="icon" class="iconfont">&#xe6f1;</i>
@@ -48,6 +48,7 @@ export default {
   },
   watch: {
     '$route' (to, from) {
+      this.selected = this.$route.path;
       const toDepth = to.path.split('/').length
       const fromDepth = from.path.split('/').length
       const  toIndex = to.meta.index;

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="foodentry">
     <swipe :auto="0">
-      <swipe-item v-for="(item, index) in swipeData" :key="index">
+      <swipe-item v-for="(item, index) in swipeData" :key="index" class="clear">
         <div v-for="(item2, index2) in item" :key="index2" class="item">
           <icon :path="item2.path" class="item-icon"></icon>
           <span class="item-title">{{item2.title}}</span>
@@ -13,7 +13,7 @@
 
 <script>
 import { Swipe, SwipeItem } from 'mint-ui'
-import Icon from '@/components/Icon.vue'
+import Icon from '@/components/common/Icon'
 export default {
   components: {
     Swipe,
@@ -24,44 +24,52 @@ export default {
     return {
       data: [
         {
-          path: require('@/assets/img/fd01.png'),
+          path: require('@/assets/img/fd01.jpg'),
           title: '美食'
         },
         {
-          path: require('@/assets/img/fd01.png'),
-          title: '美食'
+          path: require('@/assets/img/fd02.jpg'),
+          title: '晚餐'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd01.jpg'),
+          title: '商超便利'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd02.jpg'),
+          title: '果蔬生鲜'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd01.jpg'),
+          title: '新店特惠'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd02.jpg'),
+          title: '大牌5折'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd01.jpg'),
+          title: '甜品饮品'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd02.jpg'),
+          title: '医药健康'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd01.jpg'),
+          title: '浪漫鲜花'
         },
         {
-          path: 'https://fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg',
-          title: '美食'
+          path: require('@/assets/img/fd02.jpg'),
+          title: '麻辣烫'
+        },
+        {
+          path: require('@/assets/img/fd01.jpg'),
+          title: '汉堡'
+        },
+        {
+          path: require('@/assets/img/fd02.jpg'),
+          title: '地方菜系'
         }
       ]
     }
@@ -84,6 +92,10 @@ export default {
 </script>
 
 <style>
+.foodentry{
+  height: 7.5rem;
+  background: #ffffff;
+}
 .foodentry .mint-swipe-indicator{
   width: 4px;
   height: 4px;
@@ -104,7 +116,7 @@ export default {
 }
 .item-title{
   display: block;
-  font-size: .6rem;
-  color: #333333;
+  font-size: .5rem;
+  color: #666666;
 }
 </style>

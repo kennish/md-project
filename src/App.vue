@@ -16,7 +16,7 @@ export default {
 <style>
 html, body{
   height: 100%;
-  background: red;
+  background: #f5f5f5;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -moz-overflow-scrolling: touch;

@@ -53,6 +53,13 @@ a {
     font-size:100%;
     vertical-align:baseline;
     background:transparent;
+    text-decoration: none;
+}
+
+*, ::after, ::before {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
 }
 
 ins {
@@ -93,4 +100,10 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+.clear:after{
+    display: block;
+    content: '';
+    clear: both;
+    zoom: 1;
 }
