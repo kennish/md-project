@@ -6,11 +6,16 @@ import Home from '@/views/home/Home'
 import Order from '@/views/order/Order'
 import Discover from '@/views/discover/Discover'
 import About from '@/views/about/About'
+import LoginLayout from '@/views/login/LoginLayout'
 import Login from '@/views/login/Login'
+import Registration from '@/views/login/Registration'
+
+import Food from '@/views/food/Food'
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
+  linkActiveClass: 'is-active',
   routes: [
     {
       path: '/',
@@ -18,50 +23,67 @@ const router = new VueRouter({
       children: [
         {
           path: '',
-          component: Home,
-          meta: {
-            id: 'Home',
-            index: 0
-          }
+          component: Home
+        },
+        {
+          path: '/discover',
+          component: Discover
         },
         {
           path: '/order',
           component: Order,
           meta: {
-            id: 'Order',
-            index: 1
-          }
-        },
-        {
-          path: '/discover',
-          component: Discover,
-          meta: {
-            id: 'Discover',
-            index: 2
+            login: true
           }
         },
         {
           path: '/about',
-          name: About,
+          name: 'About',
           component: About,
           meta: {
-            id: 'About',
-            index: 3
+            login: true
           }
         }
       ]
     },
     {
       path: '/login',
-      component: Login
+      component: LoginLayout,
+      children: [
+        {
+          path: '',
+          component: Login
+        },
+        {
+          path: '/login/Registration',
+          component: Registration
+        }
+      ]
+    },
+    {
+      path: '/food',
+      name: 'Food',
+      component: Food
     }
   ]
 })
 
 export default router;
 
-// router.beforeEach(function (to, from, next) {
-//   console.log(to)
-//   console.log(from)
-//   next()
-// })
+/* router.beforeEach(function (to, from, next) {
+  if (to.matched.some((item) => item.meta.login)) {
+    let info = router.app.$local.fetch('user')
+    if(info.token) { // 已登录
+      next()
+    } else {
+      router.push({
+        path: '/login',
+        query: {
+          redirect: to.path.slice(1)
+        }
+      })
+    }
+  } else{
+    next()
+  }
+}) */

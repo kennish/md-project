@@ -1,17 +1,12 @@
 <template>
   <div style="overflow-x: hidden; margin-bottom: .5rem;">
-    <activity-title :title="`美食热推`" :msg="`你的美味，我都懂得`">
-      <i class="iconfont">&#xe644;</i>
+    <activity-title :title="data.headers.title" :msg="data.headers.msg">
+      <i class="iconfont" v-if="data.headers.icon" v-html="data.headers.icon"></i>
     </activity-title>
     <div class="at-wrap clear">
-      <activity-item :title="`1元的美式哦`" :price="`￥1`" :path="`assets/img/at01.png`">
-        <span slot="discount">限时优惠</span>
-        <span slot="oldPrice">￥24.9</span>
-      </activity-item>
-      <activity-item :title="`2元的美式哦`" :price="`￥2`" :path="`assets/img/at01.png`">
-      </activity-item>
-      <activity-item :title="`1元的美式哦`" :price="`￥1`" :path="`assets/img/at01.png`">
-        <span slot="oldPrice">￥24.9</span>
+      <activity-item v-for="(item, index) in data.list" :key="index" :title="item.title" :price="`￥${item.price}`" :path="item.path">
+        <span v-if="item.discount" slot="discount">{{item.discount}}</span>
+        <span v-if="item.oldPrice" slot="oldPrice">￥{{item.oldPrice}}</span>
       </activity-item>
     </div>
   </div>
@@ -24,7 +19,8 @@ export default {
   components: {
     ActivityTitle,
     ActivityItem
-  }
+  },
+  props: ['data']
 }
 </script>
 

@@ -1,19 +1,19 @@
 <template>
   <div class="content">
-    <!-- <transition :name="transitionName" mode="in-out">
-      <router-view></router-view>
-    </transition> -->
-    <router-view class="main"></router-view>
-    <tabbar style="z-index: 1" v-model="selected">
+    <transition name="fade" mode="out-in">
+      <router-view class="main"></router-view>
+    </transition>
+    <!-- <router-view class="main"></router-view> -->
+    <tabbar :fixed="true" style="z-index: 1" v-model="selected">
       <tab-item id="/" @click.native="to">
         <i slot="icon" class="iconfont">&#xe6b8;</i>
         首页
       </tab-item>
-      <tab-item id="/order" @click.native="to">
+      <tab-item id="/discover" @click.native="to">
         <i slot="icon" class="iconfont">&#xe67e;</i>
         发现
       </tab-item>
-      <tab-item id="/discover" @click.native="to">
+      <tab-item id="/order" @click.native="to">
         <i slot="icon" class="iconfont">&#xe66c;</i>
         订单
       </tab-item>
@@ -65,21 +65,41 @@ export default {
 <style>
 .content{
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 .main{
   box-sizing: border-box;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+  min-height: 100vh;
+  /* overflow-y: scroll; */
   padding-bottom: 60px;
+  background: #f5f5f5;
 }
 .iconfont{
   font-size: 24px;
 }
 
+.fade-enter-active{
+  transition: all .3s linear;
+}
+.fade-leave-active{
+  transition: all .2s linear;
+}
+.fade-enter{
+  opacity: 0;
+}
+.fade-enter-to{
+  opacity: 1;
+}
+.fade-leave{
+  opacity: 1;
+}
+.fade-leave-to{
+  opacity: 0;
+}
+
 .slide-left-enter-active,.slide-left-leave-active, .slide-right-enter-active,.slide-right-leave-active{
-    transition: transform .3s ease-in-out;
+    transition: transform .3s linear;
 }
 .slide-left-enter{
     transform: translateX(-100%);
@@ -88,11 +108,11 @@ export default {
     transform: translateX(0);
 }
 
-.slide-right-leave{
+.slide-left-leave{
     transform: translateX(0);
 }
-.slide-right-leave-to{
-    transform: translateX(-100%);
+.slide-left-leave-to{
+    transform: translateX(100%);
 }
 
 .slide-right-enter{

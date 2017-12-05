@@ -101,6 +101,16 @@ hr {
 input, select {
     vertical-align:middle;
 }
+input, button{
+    border: none;
+    outline: none;
+}
+input[type="text"] {
+-webkit-appearance: none;
+}
+textarea{
+-webkit-appearance: none;
+}
 .clear:after{
     display: block;
     content: '';

@@ -5,6 +5,10 @@ import App from './App'
 import router from './router'
 import '@/assets/css/reset.css'
 
+/** localStorage设置和获取 插件 **/
+import Local from './utils/local'
+Vue.use(Local)
+
 /** mint UI **/
 import 'mint-ui/lib/style.css'
 import { InfiniteScroll } from 'mint-ui'

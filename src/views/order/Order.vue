@@ -1,41 +1,104 @@
 <template>
-  <div class="order main">
+  <div class="order">
 
     <div style="height: 40px;">
-      <qd-header fixed title="发现"></qd-header>
+      <qd-header fixed title="订单"></qd-header>
     </div>
 
-    <entry></entry>
+    <div class="not-login" v-if="login == false">
+      <div class="not-login-icon">
+        <qd-img :path="`assets/img/not-login.gif`"></qd-img>
+      </div>
+      <p>登录后查看外卖订单</p>
+      <router-link :to="{path: '/login', query: {redirect: 'order'}}">
+        <qd-button type="primary" size="small" style="background: #56d176;">立即登录</qd-button>
+      </router-link>
+    </div>
 
-    <router-link to="" tag="div" style="margin: .5rem 0;">
-      <qd-img :path="`assets/img/ad02.jpg`"></qd-img>
-    </router-link>
+    <div class="has-login" v-if="login == true">
+      <div class="order-header">
+        <div class="order-header-l">我的订单</div>
+        <div class="order-header-r">全部订单<i class="iconfont">&#xe6a3;</i></div>
+      </div>
+      <order-item></order-item>
+      <order-item></order-item>
+      <order-item></order-item>
+      <order-item></order-item>
+      <order-item></order-item>
+    </div>
 
-    <activity></activity>
-    <activity></activity>
-
-  </div>
+  </div>  
 </template>
 
 <script>
-import { Header } from 'mint-ui'
-import Entry from '@/components/independent/order/Entry'
+import {Header, Button} from 'mint-ui'
 import qdImg from '@/components/common/Img'
-import Activity from '@/components/independent/order/Activity'
+import OrderItem from '@/components/common/OrderItem'
 export default {
   components: {
     'qd-header': Header,
-    Entry,
+    'qd-button': Button,
     qdImg,
-    Activity
+    OrderItem
+  },
+  data () {
+    return {
+      login: false
+    }
+  },
+  created () {
+    let info = this.$local.fetch('user');
+    if(info.token) {
+      this.login = true;
+    }
+  },
+  methods: {
+    toLogin () {
+
+    }
   }
 }
 </script>
-
 
 <style>
 .order{
   
 }
-</style>
+.order .has-login{
+  background: #ffffff;
+}
+.order .not-login{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 3rem;
+}
+.not-login-icon{
+  width: 10rem;
+}
+.order .not-login p{
+  width: 100%;
+  text-align: center;
+  font-size: .8rem;
+  color: #666666;
+  margin-bottom: .5rem;
+}
 
+.order-header{
+  display: flex;
+  justify-content: space-between;
+  color: #333333;
+  padding: 0 .5rem;
+  padding-top: .5rem;
+}
+.order-header .order-header-l{
+  font-size: .6rem;
+}
+.order-header .order-header-r{
+  font-size: .5rem;
+  color: #26a2ff;
+}
+.order-header .order-header-r i{
+  font-size: .5rem;
+}
+</style>

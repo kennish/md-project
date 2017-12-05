@@ -15,30 +15,31 @@ export default {
 
 <style>
 html, body{
-  height: 100%;
+  /* height: 100%;
+  overflow-y: auto; */
   background: #f5f5f5;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -moz-overflow-scrolling: touch;
   -o-overflow-scrolling: touch;
-  overflow-scrolling: touch
+  overflow-scrolling: touch;
 }
 body{
   margin: 0;
 }
 #app {
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 @font-face {
   font-family: 'iconfont';  /* project id 476079 */
-  src: url('http://at.alicdn.com/t/font_476079_q7a0yoo9x7u5l8fr.eot');
-  src: url('http://at.alicdn.com/t/font_476079_q7a0yoo9x7u5l8fr.eot?#iefix') format('embedded-opentype'),
-  url('http://at.alicdn.com/t/font_476079_q7a0yoo9x7u5l8fr.woff') format('woff'),
-  url('http://at.alicdn.com/t/font_476079_q7a0yoo9x7u5l8fr.ttf') format('truetype'),
-  url('http://at.alicdn.com/t/font_476079_q7a0yoo9x7u5l8fr.svg#iconfont') format('svg');
+  src: url('http://at.alicdn.com/t/font_476079_2zrahhzvl0qtcsor.eot');
+  src: url('http://at.alicdn.com/t/font_476079_2zrahhzvl0qtcsor.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_476079_2zrahhzvl0qtcsor.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_476079_2zrahhzvl0qtcsor.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_476079_2zrahhzvl0qtcsor.svg#iconfont') format('svg');
 }
 .iconfont{
   font-family:"iconfont" !important;
