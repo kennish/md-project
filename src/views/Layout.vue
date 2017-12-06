@@ -4,7 +4,7 @@
       <router-view class="main"></router-view>
     </transition>
     <!-- <router-view class="main"></router-view> -->
-    <tabbar :fixed="true" style="z-index: 1" v-model="selected">
+    <tabbar :fixed="true" style="z-index: 20" v-model="selected">
       <tab-item id="/" @click.native="to">
         <i slot="icon" class="iconfont">&#xe6b8;</i>
         首页

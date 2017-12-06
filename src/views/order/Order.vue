@@ -9,7 +9,7 @@
       <div class="not-login-icon">
         <qd-img :path="`assets/img/not-login.gif`"></qd-img>
       </div>
-      <p>登录后查看外卖订单</p>
+      <div class="not-login-msg">登录后查看外卖订单</div>
       <router-link :to="{path: '/login', query: {redirect: 'order'}}">
         <qd-button type="primary" size="small" style="background: #56d176;">立即登录</qd-button>
       </router-link>
@@ -76,7 +76,7 @@ export default {
 .not-login-icon{
   width: 10rem;
 }
-.order .not-login p{
+.order .not-login .not-login-msg{
   width: 100%;
   text-align: center;
   font-size: .8rem;

@@ -44,12 +44,12 @@
     <!-- 优惠、金币beg -->
     <div class="about-info">
       <div class="about-info-item">
-        <p><i class="iconfont">&#xe6e0;</i></p>
-        <p>优惠</p>
+        <div class="about-info-icon"><i class="iconfont">&#xe6e0;</i></div>
+        <div class="about-info-icon">优惠</div>
       </div>
       <div class="about-info-item">
-        <p><i class="iconfont">&#xe6ed;</i></p>
-        <p>金币</p>
+        <div class="about-info-icon"><i class="iconfont">&#xe6ed;</i></div>
+        <div class="about-info-icon">金币</div>
       </div>
     </div>
     <!-- 优惠、金币end -->
@@ -199,13 +199,13 @@ export default {
 .about-info .about-info-item:last-child{
   border-right: none;
 }
-.about-info .about-info-item p{
+.about-info .about-info-item .about-info-icon{
   justify-content: center;
   display: flex;
   width: 100%;
   font-size: .6rem;
 }
-.about-info .about-info-item p:first-child{
+.about-info .about-info-item .about-info-icon:first-child{
   margin-bottom: .4rem;
 }
 .about-info .about-info-item i{

@@ -2,10 +2,10 @@
   <div class="foodentry">
     <swipe :auto="0">
       <swipe-item v-for="(item, index) in swipeData" :key="index" class="clear">
-        <div v-for="(item2, index2) in item" :key="index2" class="item">
+        <router-link to="/food" tag="div" v-for="(item2, index2) in item" :key="index2" class="item">
           <icon :path="item2.path" class="item-icon"></icon>
           <span class="item-title">{{item2.title}}</span>
-        </div>
+        </router-link>
       </swipe-item>
     </swipe>
   </div>

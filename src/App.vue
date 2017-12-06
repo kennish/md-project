@@ -30,7 +30,7 @@ body{
 #app {
   /* height: 100%; */
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* overflow-y: auto; */
 }
 @font-face {
