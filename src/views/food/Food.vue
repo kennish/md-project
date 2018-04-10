@@ -21,20 +21,17 @@
         <div slot="filter">筛选</div>
       </qd-filter>
     </div>
-    <p>abc</p>
-    <p>abc</p>
-    <p>abc</p>
-    <p>abc</p>
-    <p>abc</p>
-    <p>abc</p>
+    <qd-upload></qd-upload>
   </div>
 </template>
 
 <script>
 import QdFilter from '@/components/common/Filter'
+import QdUpload from '@/components/common/Upload'
 export default {
   components: {
-    QdFilter
+    QdFilter,
+    QdUpload
   },
   data () {
     return {
@@ -192,6 +189,7 @@ export default {
 .filter-wrap{
   position: sticky;
   top: 0;
+  z-index: 20;
 }
 p{
   padding-bottom: 100px;

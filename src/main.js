@@ -9,6 +9,10 @@ import '@/assets/css/reset.css'
 import Local from './utils/local'
 Vue.use(Local)
 
+/** axios **/
+import axios from './http'
+Vue.prototype.axios = axios
+
 /** mint UI **/
 import 'mint-ui/lib/style.css'
 import { InfiniteScroll } from 'mint-ui'
